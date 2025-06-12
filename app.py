@@ -1,10 +1,6 @@
 import streamlit as st
 from transformers import pipeline
-
-# Load summarizer from HuggingFace
 summarizer = pipeline("summarization")
-
-# Simple quiz generator (placeholder logic)
 def generate_quiz(text):
     questions = []
     lines = text.strip().split('.')
@@ -13,8 +9,6 @@ def generate_quiz(text):
             q = f"What is the main idea of: '{line.strip()}...'"
             questions.append(f"{i+1}. {q}\n(a) Option A\n(b) Option B\n(c) Option C\n")
     return "\n".join(questions)
-
-# Streamlit UI
 st.set_page_config(page_title="NoteGenie - Free Version", layout="centered")
 st.title("🧠 NoteGenie - Summarize Notes & Create Quizzes")
 st.markdown("Paste your notes below:")
